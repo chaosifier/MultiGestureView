@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Xam.Plugin.MultiGestureView</id>
+    <version>1.0.0</version>
+    <title>MultiGesture View for Xamarin Forms</title>
+    <authors>Sagar Dahal</authors>
+    <owners>Sagar Dahal</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <licenseUrl>https://github.com/chaosifier/MultiGestureView/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/chaosifier/MultiGestureView</projectUrl>
+    <iconUrl>http://sagardahal.info.np/images/sd.png</iconUrl>
+    <description>Extended ContentView that Supports gestures like Long Press, Tap and Right Click. Also supports vibration on gesture detection.</description>
+    <summary>Tap, Long press and right click gesture recognizer container view for xamarin with vibration support.</summary>
+    <releaseNotes>Long Press, Tap and Right Click gesture support with optional Vibration.</releaseNotes>
+    <language>en-US</language>
+    <tags>xamarin.forms, xamarin, forms, long, press, tap, longpress, gesture, right, click, vibrate, vibration, chaosifier</tags>
+  </metadata>
+  <files>
+        <!-- NetStandard -->
+        <file src="lib\MultiGestureViewPlugin.dll" target="lib\netstandard2.0\MultiGestureViewPlugin.dll" />
+        <file src="lib\MultiGestureViewPlugin.pdb" target="lib\netstandard2.0\MultiGestureViewPlugin.pdb" />
+
+        <!-- Xamarin.iOS (Unified)-->
+        <file src="lib/MultiGestureViewPlugin.iOS.dll" target="lib/Xamarin.iOS10/MultiGestureViewPlugin.iOS.dll" />
+        <file src="lib/MultiGestureViewPlugin.dll" target="lib/Xamarin.iOS10/MultiGestureViewPlugin.dll" />
+        <file src="lib/MultiGestureViewPlugin.pdb" target="lib/Xamarin.iOS10/MultiGestureViewPlugin.pdb" />
+
+        <!-- Xamarin.Android -->
+        <file src="lib/MultiGestureViewPlugin.Android.dll" target="lib/MonoAndroid/MultiGestureViewPlugin.Android.dll" />
+		<file src="lib/MultiGestureViewPlugin.Android.dll.mdb" target="lib/MonoAndroid/MultiGestureViewPlugin.Android.dll.mdb" />
+        <file src="lib/MultiGestureViewPlugin.dll" target="lib/MonoAndroid/MultiGestureViewPlugin.dll" />
+        <file src="lib/MultiGestureViewPlugin.pdb" target="lib/MonoAndroid/MultiGestureViewPlugin.pdb" />
+
+        <!-- UWP -->
+        <file src="lib/MultiGestureViewPlugin.UWP.dll" target="lib/UAP10/MultiGestureViewPlugin.UWP.dll" />
+        <file src="lib/MultiGestureViewPlugin.UWP.pri" target="lib/UAP10/MultiGestureViewPlugin.UWP.pri" />
+        <file src="lib/MultiGestureViewPlugin.dll" target="lib/UAP10/MultiGestureViewPlugin.dll" />
+        <file src="lib/MultiGestureViewPlugin.pdb" target="lib/UAP10/MultiGestureViewPlugin.pdb" />
+    </files>
+</package>

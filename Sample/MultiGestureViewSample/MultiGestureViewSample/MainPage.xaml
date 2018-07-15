@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MultiGestureViewSample"
+             x:Class="MultiGestureViewSample.MainPage"
+             xmlns:gestureViewPlugin="clr-namespace:MultiGestureViewPlugin;assembly=MultiGestureViewPlugin"
+             >
+    <gestureViewPlugin:MultiGestureView VibrateOnTap="True" TapVibrationDuration="150" VibrateOnLongPress="True" LongPressVibrationDuration="300" HeightRequest="300" WidthRequest="300" Padding="30" BackgroundColor="Salmon" HorizontalOptions="Center" VerticalOptions="Center" x:Name="gv">
+        <Label Text="Tap / Long Press / Right Click here" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+    </gestureViewPlugin:MultiGestureView>
+</ContentPage>
