@@ -1,13 +1,13 @@
 # MultiGestureView
 Extended ContentView with added support for common but usefult gestures like Tap, Long Press and Right Click. Also supports Vibration and Vibration duration for haptic feedback.
 
-#### Setup
+#### Setup :
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/ [![NuGet](https://img.shields.io/nuget/v/CarouselView.FormsPlugin.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/)
 * Install in your PCL/.Net Standard 2.0 and client projects.
 
 The library needs Vibration permission in Android for vibration to work. The permission should automatically be added if installed from NuGet. If the vibration still doesn't work, try adding the Vibration permission explicitly.
 
-**Gesture Support**
+#### Gesture Support :
 
 |Platform|Long Press|Tap|Right Click|
 | ------------------- | :-----------: | :-----------: | :------------------: |
@@ -16,7 +16,7 @@ The library needs Vibration permission in Android for vibration to work. The per
 |UWP|No|Yes|Yes|
 
 
-#### Basic Usage
+#### Basic Usage :
 
 ```
 var gestureView = new MultiGestureView()
