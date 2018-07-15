@@ -1,5 +1,5 @@
 # MultiGestureView
-Extended ContentView with added support for common but usefult gestures like Tap, Long Press and Right Click. Also supports Vibration and Vibration duration for haptic feedback.
+Extended ContentView with Events for gestures like Tap, Long Press and Right Click. Also supports Vibration and Vibration duration for haptic feedback.
 
 #### Setup :
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/ [![NuGet](https://img.shields.io/badge/NuGet-1.0.0-brightgreen.svg)](https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/)
