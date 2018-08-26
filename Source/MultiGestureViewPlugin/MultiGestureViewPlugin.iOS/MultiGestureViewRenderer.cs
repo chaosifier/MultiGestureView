@@ -22,15 +22,15 @@ namespace MultiGestureViewPlugin.iOS
 
         public MultiGestureViewRenderer()
         {
-            _longPressRecognizer = new UILongPressGestureRecognizer(() =>
+            _longPressRecognizer = new UILongPressGestureRecognizer((s) =>
             {
-                if(_view != null)
+                if (s.State == UIGestureRecognizerState.Began && _view != null)
                 {
                     if (_view.VibrateOnLongPress && _vibrator.CanVibrate)
                     {
                         _vibrator.Vibrate(_view.LongPressVibrationDuration);
-                        _view.LongPressedHandler?.Invoke(_view, null);
                     }
+                    _view.LongPressedHandler?.Invoke(_view, null);
                 }
             });
 
@@ -39,8 +39,8 @@ namespace MultiGestureViewPlugin.iOS
                 if (_view.VibrateOnTap && _vibrator.CanVibrate)
                 {
                     _vibrator.Vibrate(_view.TapVibrationDuration);
-                    _view.TappedHandler?.Invoke(_view, null);
                 }
+                _view.TappedHandler?.Invoke(_view, null);
             });
         }
 
@@ -61,6 +61,7 @@ namespace MultiGestureViewPlugin.iOS
 
             if (Control != null)
             {
+                Control.UserInteractionEnabled = true;
                 Control.AddGestureRecognizer(_longPressRecognizer);
                 Control.AddGestureRecognizer(_tapGestureRecognizer);
             }
