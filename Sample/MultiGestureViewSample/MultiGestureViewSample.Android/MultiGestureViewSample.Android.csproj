@@ -8,14 +8,13 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MultiGestureViewSample.Droid</RootNamespace>
     <AssemblyName>MultiGestureViewSample.Android</AssemblyName>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -47,9 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xam.Plugin.MultiGestureView">
-      <Version>1.0.2</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
@@ -83,10 +79,23 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\MultiGestureViewPlugin\MultiGestureViewPlugin.Android\MultiGestureViewPlugin.Android.csproj">
+      <Project>{8fc2a856-c2a6-434c-8c3e-19fbdca01803}</Project>
+      <Name>MultiGestureViewPlugin.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Source\MultiGestureViewPlugin\MultiGestureViewPlugin\MultiGestureViewPlugin.csproj">
+      <Project>{23a44e4b-32b8-4d30-8791-93c343789357}</Project>
+      <Name>MultiGestureViewPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MultiGestureViewSample\MultiGestureViewSample.csproj">
       <Project>{BF3BCF72-19D8-4D5C-AFFB-2E44748176DD}</Project>
       <Name>MultiGestureViewSample</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarMultiGestureViewSampleAndroidHideInfoBar="True" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

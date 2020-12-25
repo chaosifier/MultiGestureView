@@ -31,6 +31,9 @@ namespace MultiGestureViewPlugin.iOS
                         _vibrator.Vibrate(_view.LongPressVibrationDuration);
                     }
                     _view.LongPressedHandler?.Invoke(_view, null);
+
+                    if (_view.LongPressedCommand?.CanExecute(null) == true)
+                        _view.LongPressedCommand?.Execute(null);
                 }
             });
 
@@ -41,6 +44,9 @@ namespace MultiGestureViewPlugin.iOS
                     _vibrator.Vibrate(_view.TapVibrationDuration);
                 }
                 _view.TappedHandler?.Invoke(_view, null);
+
+                if (_view.TappedCommand?.CanExecute(null) == true)
+                    _view.TappedCommand?.Execute(null);
             });
         }
 
@@ -48,23 +54,35 @@ namespace MultiGestureViewPlugin.iOS
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement != null)
-            {
-                _view = e.NewElement as MultiGestureView;
-            }
-
             if (Control == null)
             {
                 var theView = new UIKit.UIView();
                 SetNativeControl(theView);
             }
 
-            if (Control != null)
+            if (e.NewElement != null)
             {
-                Control.UserInteractionEnabled = true;
-                Control.AddGestureRecognizer(_longPressRecognizer);
-                Control.AddGestureRecognizer(_tapGestureRecognizer);
+                _view = e.NewElement;
+                setupControl();
             }
+
+            if (e.OldElement != null)
+            {
+                destroyControl();
+            }
+        }
+
+        private void setupControl()
+        {
+            Control.UserInteractionEnabled = true;
+            Control.AddGestureRecognizer(_longPressRecognizer);
+            Control.AddGestureRecognizer(_tapGestureRecognizer);
+        }
+
+        private void destroyControl()
+        {
+            Control.RemoveGestureRecognizer(_longPressRecognizer);
+            Control.RemoveGestureRecognizer(_tapGestureRecognizer);
         }
     }
 }

@@ -148,13 +148,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xam.Plugin.MultiGestureView">
-      <Version>1.0.2</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\MultiGestureViewPlugin\MultiGestureViewPlugin.UWP\MultiGestureViewPlugin.UWP.csproj">
+      <Project>{dc81d24a-4afa-4efe-a735-c77f3f2dedb2}</Project>
+      <Name>MultiGestureViewPlugin.UWP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Source\MultiGestureViewPlugin\MultiGestureViewPlugin\MultiGestureViewPlugin.csproj">
+      <Project>{23a44e4b-32b8-4d30-8791-93c343789357}</Project>
+      <Name>MultiGestureViewPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MultiGestureViewSample\MultiGestureViewSample.csproj">
       <Project>{BF3BCF72-19D8-4D5C-AFFB-2E44748176DD}</Project>
       <Name>MultiGestureViewSample</Name>

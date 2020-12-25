@@ -119,13 +119,20 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xam.Plugin.MultiGestureView">
-      <Version>1.0.2</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\MultiGestureViewPlugin\MultiGestureViewPlugin.iOS\MultiGestureViewPlugin.iOS.csproj">
+      <Project>{87ef86e6-1d53-4c5a-9b1b-7adfb3f81034}</Project>
+      <Name>MultiGestureViewPlugin.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Source\MultiGestureViewPlugin\MultiGestureViewPlugin\MultiGestureViewPlugin.csproj">
+      <Project>{23a44e4b-32b8-4d30-8791-93c343789357}</Project>
+      <Name>MultiGestureViewPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MultiGestureViewSample\MultiGestureViewSample.csproj">
       <Project>{BF3BCF72-19D8-4D5C-AFFB-2E44748176DD}</Project>
       <Name>MultiGestureViewSample</Name>

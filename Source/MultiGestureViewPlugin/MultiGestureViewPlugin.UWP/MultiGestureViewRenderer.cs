@@ -19,31 +19,58 @@ namespace MultiGestureViewPlugin.UWP
 
             if (e.NewElement != null)
             {
-                _view = e.NewElement as MultiGestureView;
+                _view = e.NewElement;
+                setupControl();
             }
 
+            if (e.OldElement != null)
+            {
+                destroyControl();
+            }
+        }
+
+        private void setupControl()
+        {
             IsRightTapEnabled = true;
             IsHoldingEnabled = true;
-            if (_view != null)
-            {
-                RightTapped += (s, ea) =>
-                {
-                    _view?.RightClickedHandler?.Invoke(_view, null);
-                };
-                
-                Holding += (s, ea) =>
-                {
-                    if (ea.HoldingState == Windows.UI.Input.HoldingState.Started)
-                    {
-                        _view?.LongPressedHandler?.Invoke(_view, null);
-                    }
-                };
 
-                Tapped += (s, ea) =>
-                {
-                    _view?.TappedHandler?.Invoke(_view, null);
-                };
+            RightTapped += MultiGestureViewRenderer_RightTapped;
+            Holding += MultiGestureViewRenderer_Holding;
+            Tapped += MultiGestureViewRenderer_Tapped;
+        }
+
+        private void destroyControl()
+        {
+            RightTapped -= MultiGestureViewRenderer_RightTapped;
+            Holding -= MultiGestureViewRenderer_Holding;
+            Tapped -= MultiGestureViewRenderer_Tapped;
+        }
+
+        private void MultiGestureViewRenderer_Holding(object sender, Windows.UI.Xaml.Input.HoldingRoutedEventArgs e)
+        {
+            if (e.HoldingState == Windows.UI.Input.HoldingState.Started)
+            {
+                _view?.LongPressedHandler?.Invoke(_view, null);
             }
+
+            if (_view.LongPressedCommand?.CanExecute(null) == true)
+                _view.LongPressedCommand?.Execute(null);
+        }
+
+        private void MultiGestureViewRenderer_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            _view?.TappedHandler?.Invoke(_view, null);
+
+            if (_view.TappedCommand?.CanExecute(null) == true)
+                _view.TappedCommand?.Execute(null);
+        }
+
+        private void MultiGestureViewRenderer_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
+        {
+            _view?.RightClickedHandler?.Invoke(_view, null);
+
+            if (_view.RightClickedCommand?.CanExecute(null) == true)
+                _view.RightClickedCommand?.Execute(null);
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MultiGestureViewSample.Pages.TestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:multigestureviewplugin="clr-namespace:MultiGestureViewPlugin;assembly=MultiGestureViewPlugin">
+    <ContentPage.Content>
+        <StackLayout Padding="30,30,30,0" Spacing="30">
+            <multigestureviewplugin:MultiGestureView
+                Padding="30"
+                BackgroundColor="Salmon"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                LongPressVibrationDuration="1000"
+                LongPressedCommand="{Binding MyLongPressedCommand}"
+                RightClickedCommand="{Binding MyRightClickedCommand}"
+                TapVibrationDuration="500"
+                TappedCommand="{Binding MyTappedCommand}"
+                VibrateOnLongPress="True"
+                VibrateOnTap="True">
+                <Label
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="Click / Right-Click / Long Press here"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </multigestureviewplugin:MultiGestureView>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label Text="{Binding LogMessage}" />
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

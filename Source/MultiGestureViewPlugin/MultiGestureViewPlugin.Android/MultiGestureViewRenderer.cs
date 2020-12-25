@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -17,7 +16,7 @@ using MultiGestureViewPlugin;
 [assembly: ExportRenderer(typeof(MultiGestureView), typeof(MultiGestureViewRenderer))]
 namespace MultiGestureViewPlugin.Droid
 {
-    public class MultiGestureViewRenderer : ViewRenderer<MultiGestureView, Android.Views.View>
+    public class MultiGestureViewRenderer : ViewRenderer<MultiGestureView, global::Android.Views.View>
     {
         private MultiGestureView _view;
         private Vibrator _vibrator = new Vibrator();
@@ -30,41 +29,68 @@ namespace MultiGestureViewPlugin.Droid
 
             if (Control == null)
             {
-                SetNativeControl(new Android.Views.View(Android.App.Application.Context));
+                SetNativeControl(new global::Android.Views.View(global::Android.App.Application.Context));
             }
 
             if (e.NewElement != null)
             {
-                _view = e.NewElement as MultiGestureView;
+                _view = e.NewElement;
+                setupControl();
             }
 
+            if (e.OldElement != null)
+            {
+                destroyControl();
+            }
+        }
+
+        private void setupControl()
+        {
             Control.SoundEffectsEnabled = true;
 
             Control.LongClickable = true;
-            Control.LongClick += (s, ea) =>
-            {
-                if (_view != null)
-                {
-                    _view.LongPressedHandler?.Invoke(s, ea);
-                    if (_view.VibrateOnLongPress)
-                    {
-                     _vibrator.Vibrate(_view.LongPressVibrationDuration);
-                    }
-                }
-            };
+            Control.LongClick += Control_LongClick;
 
             Control.Clickable = true;
-            Control.Click += (s, ea) =>
+            Control.Click += Control_Click;
+        }
+
+        private void destroyControl()
+        {
+            Control.LongClick -= Control_LongClick;
+            Control.Click -= Control_Click;
+        }
+
+        private void Control_Click(object sender, EventArgs e)
+        {
+            if (_view != null)
             {
-                if (_view != null)
+                _view.TappedHandler?.Invoke(sender, e);
+
+                if (_view.TappedCommand?.CanExecute(null) == true)
+                    _view.TappedCommand?.Execute(null);
+
+                if (_view.VibrateOnTap)
                 {
-                    _view.TappedHandler?.Invoke(s, ea);
-                    if (_view.VibrateOnTap)
-                    {
-                        _vibrator.Vibrate(_view.TapVibrationDuration);
-                    }
+                    _vibrator.Vibrate(_view.TapVibrationDuration);
                 }
-            };
+            }
+        }
+
+        private void Control_LongClick(object sender, LongClickEventArgs e)
+        {
+            if (_view != null)
+            {
+                _view.LongPressedHandler?.Invoke(sender, e);
+
+                if (_view.LongPressedCommand?.CanExecute(null) == true)
+                    _view.LongPressedCommand?.Execute(null);
+
+                if (_view.VibrateOnLongPress)
+                {
+                    _vibrator.Vibrate(_view.LongPressVibrationDuration);
+                }
+            }
         }
     }
 }
