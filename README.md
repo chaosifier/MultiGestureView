@@ -2,7 +2,7 @@
 Extended ContentView with Events for gestures like Tap, Long Press and Right Click. Also supports Vibration and Vibration duration for haptic feedback.
 
 #### Setup :
-* Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/ [![NuGet](https://img.shields.io/badge/NuGet-1.0.1-brightgreen.svg)](https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/)
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/ [![NuGet](https://img.shields.io/badge/NuGet-1.0.4-brightgreen.svg)](https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/)
 * Install in your PCL/.Net Standard 2.0 and client projects.
 
 The library needs Vibration permission in Android for vibration to work. The permission should automatically be added if installed from NuGet. If the vibration still doesn't work, try adding the Vibration permission explicitly.
