@@ -32,8 +32,8 @@ namespace MultiGestureViewPlugin.iOS
                     }
                     _view.LongPressedHandler?.Invoke(_view, null);
 
-                    if (_view.LongPressedCommand?.CanExecute(null) == true)
-                        _view.LongPressedCommand?.Execute(null);
+                    if (_view.LongPressedCommand?.CanExecute(_view.LongPressedCommandParameter) == true)
+                        _view.LongPressedCommand?.Execute(_view.LongPressedCommandParameter);
                 }
             });
 
@@ -45,8 +45,8 @@ namespace MultiGestureViewPlugin.iOS
                 }
                 _view.TappedHandler?.Invoke(_view, null);
 
-                if (_view.TappedCommand?.CanExecute(null) == true)
-                    _view.TappedCommand?.Execute(null);
+                if (_view.TappedCommand?.CanExecute(_view.TappedCommandParameter) == true)
+                    _view.TappedCommand?.Execute(_view.TappedCommandParameter);
             });
         }
 

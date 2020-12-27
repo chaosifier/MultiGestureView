@@ -53,24 +53,24 @@ namespace MultiGestureViewPlugin.UWP
                 _view?.LongPressedHandler?.Invoke(_view, null);
             }
 
-            if (_view.LongPressedCommand?.CanExecute(null) == true)
-                _view.LongPressedCommand?.Execute(null);
+            if (_view.LongPressedCommand?.CanExecute(_view.LongPressedCommandParameter) == true)
+                _view.LongPressedCommand?.Execute(_view.LongPressedCommandParameter);
         }
 
         private void MultiGestureViewRenderer_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             _view?.TappedHandler?.Invoke(_view, null);
 
-            if (_view.TappedCommand?.CanExecute(null) == true)
-                _view.TappedCommand?.Execute(null);
+            if (_view.TappedCommand?.CanExecute(_view.TappedCommandParameter) == true)
+                _view.TappedCommand?.Execute(_view.TappedCommandParameter);
         }
 
         private void MultiGestureViewRenderer_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
         {
             _view?.RightClickedHandler?.Invoke(_view, null);
 
-            if (_view.RightClickedCommand?.CanExecute(null) == true)
-                _view.RightClickedCommand?.Execute(null);
+            if (_view.RightClickedCommand?.CanExecute(_view.RightClickedCommandParameter) == true)
+                _view.RightClickedCommand?.Execute(_view.RightClickedCommandParameter);
         }
     }
 }

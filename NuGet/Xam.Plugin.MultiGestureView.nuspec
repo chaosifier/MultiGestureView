@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Xam.Plugin.MultiGestureView</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <title>MultiGesture View for Xamarin Forms</title>
     <authors>Sagar Dahal</authors>
     <owners>Sagar Dahal</owners>
@@ -13,7 +13,7 @@
     <iconUrl>https://sagardahal.info.np/images/sd.png</iconUrl>
     <description>Extended ContentView that Supports gestures like Long Press, Tap and Right Click. Also supports vibration on gesture detection.</description>
     <summary>Tap, Long press and right click gesture recognizer container view for xamarin with vibration support.</summary>
-    <releaseNotes>Made all properties bindable. Added commands for all events. Memory leaks fix.</releaseNotes>
+    <releaseNotes>Added support for command parameters for each command.</releaseNotes>
     <language>en-US</language>
     <tags>xamarin.forms, xamarin, forms, long, press, tap, longpress, gesture, right, click, vibrate, vibration, chaosifier</tags>
   </metadata>

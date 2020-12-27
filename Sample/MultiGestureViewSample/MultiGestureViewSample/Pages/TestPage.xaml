@@ -7,6 +7,7 @@
     <ContentPage.Content>
         <StackLayout Padding="30,30,30,0" Spacing="30">
             <multigestureviewplugin:MultiGestureView
+                x:Name="theMgv"
                 Padding="30"
                 BackgroundColor="Salmon"
                 HeightRequest="200"
@@ -16,6 +17,7 @@
                 RightClickedCommand="{Binding MyRightClickedCommand}"
                 TapVibrationDuration="500"
                 TappedCommand="{Binding MyTappedCommand}"
+                TappedCommandParameter="{Binding Source={x:Reference theMgv}}"
                 VibrateOnLongPress="True"
                 VibrateOnTap="True">
                 <Label

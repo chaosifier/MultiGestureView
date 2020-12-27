@@ -21,7 +21,7 @@ namespace MultiGestureViewPlugin.Droid
             {
                 if ((int)Build.VERSION.SdkInt >= 11)
                 {
-                    using (var v = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Context.VibratorService))
+                    using (var v = (global::Android.OS.Vibrator)global::Android.App.Application.Context.GetSystemService(Context.VibratorService))
                         return v.HasVibrator;
                 }
                 return true;
@@ -30,7 +30,7 @@ namespace MultiGestureViewPlugin.Droid
 
         public void Vibrate(int milliseconds)
         {
-            using (var v = (Android.OS.Vibrator)Android.App.Application.Context.GetSystemService(Context.VibratorService))
+            using (var v = (global::Android.OS.Vibrator)global::Android.App.Application.Context.GetSystemService(Context.VibratorService))
             {
                 if ((int)Build.VERSION.SdkInt >= 11)
                 {
@@ -48,7 +48,7 @@ namespace MultiGestureViewPlugin.Droid
 
                 try
                 {
-                    v.Vibrate((int)milliseconds);
+                    v.Vibrate(milliseconds);
                 }
                 catch
                 {

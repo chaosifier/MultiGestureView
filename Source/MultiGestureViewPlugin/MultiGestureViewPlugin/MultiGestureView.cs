@@ -74,6 +74,16 @@ namespace MultiGestureViewPlugin
         }
 
         /// <summary>
+        /// Command parameter for long press command
+        /// </summary>
+        public static readonly BindableProperty LongPressedCommandParameterProperty = BindableProperty.Create(nameof(LongPressedCommandParameter), typeof(object), typeof(MultiGestureView), null);
+        public object LongPressedCommandParameter
+        {
+            get => GetValue(LongPressedCommandParameterProperty);
+            set { SetValue(LongPressedCommandParameterProperty, value); }
+        }
+
+        /// <summary>
         /// Tap event.
         /// If the Content or its children have gesture recognizers set, in order to prevent gesture conflicts, it is recommended to set their InputTransparent property to True.
         /// </summary>
@@ -96,6 +106,16 @@ namespace MultiGestureViewPlugin
         }
 
         /// <summary>
+        /// Command parameter for tap command
+        /// </summary>
+        public static readonly BindableProperty TappedCommandParameterProperty = BindableProperty.Create(nameof(TappedCommandParameter), typeof(object), typeof(MultiGestureView), null);
+        public object TappedCommandParameter
+        {
+            get => GetValue(TappedCommandParameterProperty);
+            set { SetValue(TappedCommandParameterProperty, value); }
+        }
+
+        /// <summary>
         /// Right click event. Only works on UWP.
         /// </summary>
         public event EventHandler RightClicked
@@ -113,6 +133,16 @@ namespace MultiGestureViewPlugin
         {
             get => (ICommand)GetValue(RightClickedCommandProperty);
             set { SetValue(RightClickedCommandProperty, value); }
+        }
+
+        /// <summary>
+        /// Command parameter for long press command
+        /// </summary>
+        public static readonly BindableProperty RightClickedCommandParameterProperty = BindableProperty.Create(nameof(RightClickedCommandParameter), typeof(object), typeof(MultiGestureView), null);
+        public object RightClickedCommandParameter
+        {
+            get => GetValue(RightClickedCommandParameterProperty);
+            set { SetValue(RightClickedCommandParameterProperty, value); }
         }
     }
 }
