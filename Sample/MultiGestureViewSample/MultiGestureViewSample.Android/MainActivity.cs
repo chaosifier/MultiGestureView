@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MultiGestureViewPlugin.Droid;
 
 namespace MultiGestureViewSample.Droid
 {
@@ -20,6 +21,9 @@ namespace MultiGestureViewSample.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            MultiGestureViewRenderer.Init();
+
             LoadApplication(new App());
         }
     }

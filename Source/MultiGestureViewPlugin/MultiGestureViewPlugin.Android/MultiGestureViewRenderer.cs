@@ -20,6 +20,8 @@ namespace MultiGestureViewPlugin.Droid
     {
         private MultiGestureView _view;
         private Vibrator _vibrator = new Vibrator();
+        
+        public static void Init() { }
 
         public MultiGestureViewRenderer(Context context) : base(context) { }
 

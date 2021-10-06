@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using MultiGestureViewPlugin.iOS;
 using UIKit;
 
 namespace MultiGestureViewSample.iOS
@@ -23,6 +24,9 @@ namespace MultiGestureViewSample.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            MultiGestureViewRenderer.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

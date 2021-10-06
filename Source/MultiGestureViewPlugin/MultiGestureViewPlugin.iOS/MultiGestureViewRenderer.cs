@@ -20,6 +20,8 @@ namespace MultiGestureViewPlugin.iOS
         private readonly UILongPressGestureRecognizer _longPressRecognizer;
         private readonly UITapGestureRecognizer _tapGestureRecognizer;
 
+        public new static void Init() { }
+
         public MultiGestureViewRenderer()
         {
             _longPressRecognizer = new UILongPressGestureRecognizer((s) =>
