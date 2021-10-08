@@ -23,6 +23,7 @@ The library needs Vibration permission in Android for vibration to work. The per
 
 #### Basic Usage :
 
+* Code behind
 ```
 var gestureView = new MultiGestureView()
 {
@@ -52,4 +53,29 @@ gestureView.RightClicked += (s, e) =>
 {
     DisplayAlert("Right Click", "Right click detected.", "Ok");
 };
+```
+
+* XAML
+```
+<multigestureviewplugin:MultiGestureView
+    x:Name="theMgv"
+    Padding="30"
+    BackgroundColor="Salmon"
+    HeightRequest="200"
+    HorizontalOptions="Center"
+    LongPressVibrationDuration="1000"
+    LongPressedCommand="{Binding MyLongPressedCommand}"
+    RightClickedCommand="{Binding MyRightClickedCommand}"
+    TapVibrationDuration="500"
+    TappedCommand="{Binding MyTappedCommand}"
+    TappedCommandParameter="{Binding Source={x:Reference theMgv}}"
+    VibrateOnLongPress="True"
+    VibrateOnTap="True">
+    <Label
+        FontSize="Large"
+        HorizontalOptions="Center"
+        Text="Click / Right-Click / Long Press here"
+        TextColor="White"
+        VerticalOptions="Center" />
+</multigestureviewplugin:MultiGestureView>
 ```
