@@ -2,7 +2,7 @@
 Extended ContentView with Events for gestures like Tap, Long Press and Right Click. Also supports Vibration and Vibration duration for haptic feedback.
 
 #### Setup :
-* Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/ [![NuGet](https://img.shields.io/badge/NuGet-1.0.4-brightgreen.svg)](https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/)
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/ [![NuGet](https://img.shields.io/badge/NuGet-1.0.5-brightgreen.svg)](https://www.nuget.org/packages/Xam.Plugin.MultiGestureView/)
 * Install in your PCL/.Net Standard 2.0 and client projects.
 
 * Call Init() method of custom renderers in each platform.
